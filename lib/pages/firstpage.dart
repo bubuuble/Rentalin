@@ -17,8 +17,8 @@ class Firstpage extends StatelessWidget {
                 builder: (context) => Secondpage(),
               )),
           child: SizedBox(
-            height: 500,
-            width: 500,
+            height: 250,
+            width: 250,
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
