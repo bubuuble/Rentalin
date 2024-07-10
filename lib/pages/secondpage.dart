@@ -22,7 +22,7 @@ class Secondpage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
               child: Image.asset(
-                'lib/images/rentalin_logo_baru.png',
+                'lib/images/dummy_images.jpg',
                 height: 400,
               ),
             ),
@@ -39,7 +39,7 @@ class Secondpage extends StatelessWidget {
 
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 70, right: 40, left: 40),
+                padding: const EdgeInsets.only(top: 50, right: 40, left: 40),
                 child: Text(
                     'Applications that make travel more comfortable, ready to help mobility anytime and anywhere',
                     textAlign: TextAlign.center,
@@ -49,10 +49,56 @@ class Secondpage extends StatelessWidget {
                         fontWeight: FontWeight.normal)),
               ),
             ),
-            //text
+
+            const SizedBox(
+              width: 20,
+            ),
+
+            //3 circles bar
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-      ), //3 circles bar
+      ),
     );
   }
 }
