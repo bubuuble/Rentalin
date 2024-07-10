@@ -17,12 +17,9 @@ class Firstpage extends StatelessWidget {
                 builder: (context) => Secondpage(),
               )),
           child: SizedBox(
-            height: 400,
-            width: 400,
+            height: 500,
+            width: 500,
             child: Container(
-              // child: Image.asset('lib/images/rentalin_logo_baru_01.png',
-              // height: 240,
-              // ),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('lib/images/rentalin_logo_baru_01.png'),
