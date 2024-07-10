@@ -8,14 +8,15 @@ class Firstpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: GestureDetector(
-          onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Secondpage(),
-              )),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Secondpage()),
+        );
+      },
+      child: Scaffold(
+        body: Center(
           child: SizedBox(
             height: 250,
             width: 250,

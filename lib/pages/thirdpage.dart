@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentalin/components/logobar.dart';
-import 'package:rentalin/pages/thirdpage.dart';
+import 'package:rentalin/pages/fourthpage.dart';
 
-class Secondpage extends StatelessWidget {
-  const Secondpage({super.key});
+class Thirdpage extends StatelessWidget {
+  const Thirdpage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Secondpage extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Thirdpage()),
+          MaterialPageRoute(builder: (context) => Fourthpage()),
         );
       },
       child: Scaffold(
@@ -33,7 +33,8 @@ class Secondpage extends StatelessWidget {
                 ),
               ),
               //text
-              Text('Welcome To Rentalin',
+              Text('Easily choose your own dream motorbike',
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                       fontSize: 20,
                       color: Colors.white,
@@ -47,7 +48,7 @@ class Secondpage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 50, right: 40, left: 40),
                   child: Text(
-                      'Applications that make travel more comfortable, ready to help mobility anytime and anywhere',
+                      'Hundreds of motorbikes are ready with various choices and extra services just for you',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
                           fontSize: 18,
@@ -72,7 +73,7 @@ class Secondpage extends StatelessWidget {
                         width: 10,
                         height: 10,
                         decoration: BoxDecoration(
-                          color: Colors.grey,
+                          color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -83,7 +84,7 @@ class Secondpage extends StatelessWidget {
                         width: 10,
                         height: 10,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Colors.grey,
                           shape: BoxShape.circle,
                         ),
                       ),
