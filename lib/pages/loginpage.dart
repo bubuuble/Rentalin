@@ -11,17 +11,20 @@ class Loginpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo
-            Logo1(),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        SizedBox(height: 20), // Spacer at the top
 
-            SizedBox(height: 20),
+        // Logo centered
+        Center(child: Logo1()),
 
-            // Text
-            Text(
+        SizedBox(height: 20), // Spacer between logo and text
+
+        // Text left-aligned
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
               'Getting Started',
               style: GoogleFonts.poppins(
                 fontSize: 20,
@@ -29,9 +32,9 @@ class Loginpage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ],
+          ),
         ),
-      ),
+      ]),
     );
   }
 }
