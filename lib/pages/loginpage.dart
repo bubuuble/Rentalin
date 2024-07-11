@@ -12,7 +12,8 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
-  TextEditingController myController = TextEditingController();
+  TextEditingController myEmail = TextEditingController();
+  TextEditingController myPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class _LoginpageState extends State<Loginpage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: TextField(
-                        controller: myController,
+                        controller: myEmail,
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.mail),
                             hintText: "Example@gmail.com",
@@ -85,7 +86,7 @@ class _LoginpageState extends State<Loginpage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: TextField(
-                        controller: myController,
+                        controller: myPassword,
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.lock),
                             hintText:
