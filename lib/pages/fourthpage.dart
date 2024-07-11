@@ -70,7 +70,7 @@ class Fourthpage extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'Login',
+                    'Start',
                     style: GoogleFonts.poppins(
                         fontSize: 30,
                         color: Colors.black,
