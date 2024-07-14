@@ -11,8 +11,8 @@ class Logo1 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 50, bottom: 20),
           child: Container(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(29, 35, 77, 1),
                   borderRadius: BorderRadius.circular(50)),
@@ -22,7 +22,7 @@ class Logo1 extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Image.asset(
             'lib/images/tulisan_rentalin_01.png',
-            width: 200,
+            width: 100,
           ),
         ),
       ],

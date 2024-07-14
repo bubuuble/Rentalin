@@ -28,7 +28,7 @@ class Secondpage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
               child: Image.asset(
-                'lib/images/dummy_images.jpg',
+                'lib/images/page2_image.png',
                 height: 400,
               ),
             ),
