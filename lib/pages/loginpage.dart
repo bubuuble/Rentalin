@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentalin/components/logo1.dart';
 import 'package:rentalin/components/squaretile.dart';
+import 'package:rentalin/pages/autenthication.dart';
 import 'package:rentalin/pages/signup.dart';
 
 class Loginpage extends StatefulWidget {
@@ -46,7 +47,7 @@ class _LoginpageState extends State<Loginpage> {
       // Navigate to next page or perform action if the form is valid
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => Signup(),
+          builder: (context) => Autenthication(),
         ),
       );
     }
