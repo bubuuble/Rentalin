@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-
-import 'package:rentalin/pages/facerecog.dart';
 
 class Autenthication extends StatefulWidget {
   const Autenthication({super.key});
@@ -13,28 +9,6 @@ class Autenthication extends StatefulWidget {
 }
 
 class _AutenthicationState extends State<Autenthication> {
-  final ImagePicker _picker = ImagePicker();
-  File? _image;
-
-  Future<void> _takePicture() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.camera);
-
-    if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path);
-      });
-      // Save the image to the database here
-
-      // Navigate to another page
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Facerecog(image: _image)),
-      );
-    } else {
-      print('No image selected.');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +21,8 @@ class _AutenthicationState extends State<Autenthication> {
               decoration: BoxDecoration(
                 color: Color.fromRGBO(29, 35, 77, 1),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                ),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.3),
@@ -72,10 +45,9 @@ class _AutenthicationState extends State<Autenthication> {
                       child: Text(
                         "Autenthication",
                         style: GoogleFonts.poppins(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -88,116 +60,60 @@ class _AutenthicationState extends State<Autenthication> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: Text(
-                "Verify Your Identity",
+                "E-KTP, SIM C, and 1 other Identity Photos",
                 style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal),
                 textAlign: TextAlign.center,
               ),
             ),
-            // Box to take a picture of our identity card
-            Container(
-              height: 400,
-              width: double.infinity,
-              margin: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 2,
-                ),
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.camera_alt,
-                  size: 100,
-                  color: Colors.grey[400],
-                ),
-              ),
-            ),
-
             Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 30),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.brightness_1,
-                        size: 10,
-                        color: Color.fromARGB(255, 83, 16, 254),
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "Upload your KTP or Passport",
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(29, 35, 77, 1),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset:
+                          Offset(2, 2), // changes the position of the shadow
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.asset(
+                    'lib/images/dummy_images.jpg',
+                    fit: BoxFit.cover,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.brightness_1,
-                        size: 10,
-                        color: Color.fromARGB(255, 83, 16, 254),
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "Keep your camera steady",
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.brightness_1,
-                        size: 10,
-                        color: Color.fromARGB(255, 83, 16, 254),
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "Make sure you are in a bright environment",
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
               ),
             ),
-            // Button to take picture
-            ElevatedButton.icon(
-              onPressed: _takePicture,
-              icon: Icon(Icons.camera_alt_rounded),
-              label: Text(
-                'Take Picture',
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 5,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(12)),
               ),
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                "Selfie With E-KTP",
+                style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
