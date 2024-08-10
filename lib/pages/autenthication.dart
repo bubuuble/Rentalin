@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rentalin/pages/facerecog.dart';
 import 'dart:io';
 
-import 'package:rentalin/pages/facerecog.dart';
+import 'package:rentalin/pages/idrecog.dart';
 
 class Autenthication extends StatefulWidget {
   const Autenthication({super.key});
@@ -23,16 +24,24 @@ class _AutenthicationState extends State<Autenthication> {
       setState(() {
         _image = File(pickedFile.path);
       });
-      // Save the image to the database here
 
-      // Navigate to another page
+      // Store the image in the database
+      await _storeImage(_image!);
+
+      // Perform ID verification (implement your own verification logic here)
+
+      // Navigate to the next page if verification succeeds
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Facerecog(image: _image)),
+        MaterialPageRoute(builder: (context) => Idrecog(image: _image)),
       );
     } else {
       print('No image selected.');
     }
+  }
+
+  Future<void> _storeImage(File image) async {
+    // Your logic for storing the image in the database
   }
 
   @override
@@ -183,7 +192,7 @@ class _AutenthicationState extends State<Autenthication> {
             ),
             // Button to take picture
             ElevatedButton.icon(
-              onPressed: _takePicture,
+              onPressed: _takePicture, // Assign the method to the button press
               icon: Icon(Icons.camera_alt_rounded),
               label: Text(
                 'Take Picture',
@@ -197,6 +206,30 @@ class _AutenthicationState extends State<Autenthication> {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Facerecog()));
+                }, // Assign the method to the button press
+                icon: Icon(Icons.abc_outlined),
+                label: Text(
+                  'Go To Next Page',
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ),
