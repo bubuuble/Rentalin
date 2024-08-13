@@ -4,16 +4,16 @@ import 'dart:io';
 class Idrecog extends StatelessWidget {
   final File? image;
 
-  const Idrecog({Key? key, this.image}) : super(key: key);
+  const Idrecog({super.key, this.image});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Face Recognition'),
+        title: const Text('Face Recognition'),
       ),
       body: Center(
-        child: image != null ? Image.file(image!) : Text('No image taken'),
+        child: image != null ? Image.file(image!) : const Text('No image taken'),
       ),
     );
   }

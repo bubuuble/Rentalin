@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:rentalin/pages/facerecog.dart';
-import 'package:rentalin/pages/homepage.dart';
+import 'package:rentalin/pages/home.dart';
 import 'dart:io';
 
 import 'package:rentalin/pages/idrecog.dart';
@@ -55,8 +54,8 @@ class _FacerecogState extends State<Facerecog> {
             Container(
               height: 120,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(29, 35, 77, 1),
-                borderRadius: BorderRadius.only(
+                color: const Color.fromRGBO(29, 35, 77, 1),
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),
                 ),
@@ -65,14 +64,15 @@ class _FacerecogState extends State<Facerecog> {
                     color: Colors.black.withOpacity(0.3),
                     spreadRadius: 5,
                     blurRadius: 20,
-                    offset: Offset(0, 4), // changes the position of the shadow
+                    offset: const Offset(
+                        0, 4), // changes the position of the shadow
                   ),
                 ],
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(children: [
-                  Icon(
+                  const Icon(
                     Icons.arrow_back,
                     size: 40,
                     color: Colors.white,
@@ -92,7 +92,7 @@ class _FacerecogState extends State<Facerecog> {
                 ]),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -137,12 +137,12 @@ class _FacerecogState extends State<Facerecog> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.brightness_1,
                         size: 10,
                         color: Color.fromARGB(255, 83, 16, 254),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         "Make sure your face is aligned with the instructions",
                         style: GoogleFonts.poppins(
@@ -155,12 +155,12 @@ class _FacerecogState extends State<Facerecog> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.brightness_1,
                         size: 10,
                         color: Color.fromARGB(255, 83, 16, 254),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         "Make sure you are in a bright environment",
                         style: GoogleFonts.poppins(
@@ -173,12 +173,12 @@ class _FacerecogState extends State<Facerecog> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.brightness_1,
                         size: 10,
                         color: Color.fromARGB(255, 83, 16, 254),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         "Keep your camera steady",
                         style: GoogleFonts.poppins(
@@ -194,7 +194,7 @@ class _FacerecogState extends State<Facerecog> {
             // Button to take picture
             ElevatedButton.icon(
               onPressed: _takePicture, // Assign the method to the button press
-              icon: Icon(Icons.camera_alt_rounded),
+              icon: const Icon(Icons.camera_alt_rounded),
               label: Text(
                 'Take Picture',
                 style: GoogleFonts.poppins(
@@ -215,9 +215,9 @@ class _FacerecogState extends State<Facerecog> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Homepage()));
+                      MaterialPageRoute(builder: (context) => const Home()));
                 }, // Assign the method to the button press
-                icon: Icon(Icons.abc_outlined),
+                icon: const Icon(Icons.abc_outlined),
                 label: Text(
                   'Go To Next Page',
                   style: GoogleFonts.poppins(

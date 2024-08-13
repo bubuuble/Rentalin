@@ -9,7 +9,7 @@ import 'package:rentalin/pages/autenthication.dart';
 import 'package:rentalin/pages/signup.dart';
 
 class Loginpage extends StatefulWidget {
-  const Loginpage({Key? key}) : super(key: key);
+  const Loginpage({super.key});
 
   @override
   State<Loginpage> createState() => _LoginpageState();
@@ -87,7 +87,7 @@ class _LoginpageState extends State<Loginpage> {
               SizedBox(height: 30), // Spacer between logo and text
 
               // Text left-aligned
-              Container(
+              SizedBox(
                 width: double.infinity, // Take full width of the screen
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
