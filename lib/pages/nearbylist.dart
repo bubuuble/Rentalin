@@ -1,31 +1,36 @@
-//nearbylist.dart
+import 'package:rentalin/moduls/nearby_list.dart';
 
-import 'package:rentalin/moduls/bike.dart';
-
-final List<Bike> bikes = [
-  Bike(
+final List<Nearby> nearby = [
+  Nearby(
     imagePath: 'lib/images/beat1.jpg',
-    name: 'Beat 1',
-    description: 'Description for Beat 1',
-    price: "100000",
+    rentName: "Rental Motor Kukusan",
+    distance: "800 m",
+    bikeName: 'Beat',
+    description: 'Motor Beat Hitam CBS',
+    price: "100.000",
   ),
-  Bike(
+  Nearby(
     imagePath: 'lib/images/beat2.jpg',
-    name: 'Beat 2',
-    description: 'Description for Beat 2',
-    price: "150000",
+    rentName: "Rental Motor Beji",
+    distance: "1000 m",
+    bikeName: 'Beat',
+    description: 'Motor Beat Hitam CBS',
+    price: "90.000",
   ),
-  Bike(
+  Nearby(
     imagePath: 'lib/images/beat3.jpg',
-    name: 'Beat 3',
-    description: 'Description for Beat 3',
-    price: "150000",
+    rentName: "Rental Motor GDC",
+    distance: "1.2 km",
+    bikeName: 'Beat',
+    description: 'Motor Beat Hitam CBS',
+    price: "110.000",
   ),
-  Bike(
+  Nearby(
     imagePath: 'lib/images/nmax1.png',
-    name: 'Nmax 1',
-    description: 'Description for Nmax 1',
-    price: "150000",
+    rentName: "Rental Motor Depok",
+    distance: "1.8 km",
+    bikeName: 'N-Max',
+    description: 'Motor N-Max Hitam CBS',
+    price: "150.000",
   ),
-  // Add more bikes here
 ];

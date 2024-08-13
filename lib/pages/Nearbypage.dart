@@ -1,8 +1,8 @@
+// nearbypage.dart
 import 'package:flutter/material.dart';
-import 'package:rentalin/moduls/bike.dart'; // Ensure Bike class is imported // Import the file where bikes list is defined
+import 'package:rentalin/moduls/nearby_list.dart';
 import 'package:rentalin/pages/nearbylist.dart';
-import 'package:rentalin/pages/nearbytile.dart'; // Ensure this path is correct
-// Ensure this path is correct
+import 'package:rentalin/pages/nearbytile.dart';
 
 class Nearbypage extends StatefulWidget {
   const Nearbypage({super.key});
@@ -12,13 +12,12 @@ class Nearbypage extends StatefulWidget {
 }
 
 class _NearbypageState extends State<Nearbypage> {
-  // State variables for filters
-  String _selectedType = 'All'; // Default value
-  String _selectedColor = 'All'; // Default value
-  double _minPrice = 0; // Default value
-  double _maxPrice = double.infinity; // Default value
+  String _selectedType = 'All';
+  String _selectedColor = 'All';
+  double _minPrice = 0;
+  double _maxPrice = double.infinity;
 
-  List<Bike> _filteredBikes = bikes;
+  List<Nearby> _filteredBikes = nearby; // Ensure this is a List<Nearby>
 
   @override
   void initState() {
@@ -28,14 +27,12 @@ class _NearbypageState extends State<Nearbypage> {
 
   void _applyFilters() {
     setState(() {
-      _filteredBikes = bikes.where((bike) {
-        // Filter by price
+      _filteredBikes = nearby.where((bike) {
         double price = double.tryParse(bike.price) ?? 0;
         if (price < _minPrice || price > _maxPrice) return false;
 
-        // Filter by type and color
-        // Replace 'bike.type' and 'bike.color' with actual fields if available
-        // if (_selectedType != 'All' && bike.type != _selectedType) return false;
+        // Uncomment these lines if filtering by type and color is needed
+        // if (_selectedType != 'All' && bike.bikeName != _selectedType) return false;
         // if (_selectedColor != 'All' && bike.color != _selectedColor) return false;
 
         return true;
@@ -91,7 +88,6 @@ class _NearbypageState extends State<Nearbypage> {
                 max: 200000,
                 onChanged: (values) {
                   setState(() {
-                    // Ensure values are within bounds
                     _minPrice = values.start.clamp(0.0, 200000.0);
                     _maxPrice = values.end.clamp(_minPrice, 200000.0);
                     _applyFilters();
@@ -165,7 +161,7 @@ class _NearbypageState extends State<Nearbypage> {
                   final bike = _filteredBikes[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 20),
-                    child: Nearbytile(bike: bike),
+                    child: Nearbytile(nearby: bike),
                   );
                 },
                 childCount: _filteredBikes.length,
