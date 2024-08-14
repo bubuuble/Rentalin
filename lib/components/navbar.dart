@@ -5,7 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 class MyBottomNavbar extends StatelessWidget {
   final void Function(int)? onTabChange;
 
-  MyBottomNavbar({super.key, this.onTabChange});
+  const MyBottomNavbar({super.key, this.onTabChange});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class MyBottomNavbar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: GNav(
         color: Colors.grey,
-        activeColor: Color.fromRGBO(29, 35, 77, 1),
+        activeColor: const Color.fromRGBO(29, 35, 77, 1),
         tabActiveBorder: Border.all(color: Colors.grey.shade400),
         tabBackgroundColor: Colors.grey.shade100,
         gap: 8,

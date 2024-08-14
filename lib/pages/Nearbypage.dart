@@ -45,7 +45,7 @@ class _NearbypageState extends State<Nearbypage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Filter Options'),
+          title: const Text('Filter Options'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -105,7 +105,7 @@ class _NearbypageState extends State<Nearbypage> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Apply'),
+              child: const Text('Apply'),
             ),
           ],
         );
@@ -129,7 +129,7 @@ class _NearbypageState extends State<Nearbypage> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
+                  const Text(
                     "Nearby Rents",
                     style: TextStyle(
                       fontSize: 25,
@@ -137,11 +137,11 @@ class _NearbypageState extends State<Nearbypage> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.filter_list,
                         size: 30,
                         color: Colors.black,
@@ -154,7 +154,7 @@ class _NearbypageState extends State<Nearbypage> {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {

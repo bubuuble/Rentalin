@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentalin/components/navbar.dart';
 import 'package:rentalin/moduls/bike.dart';
 import 'package:rentalin/pages/bikelist.dart';
 import 'package:rentalin/pages/biketile.dart';
+import 'package:rentalin/pages/city_page.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  final String username;
+
+  const Homepage({super.key, required this.username});
 
   @override
   State<Homepage> createState() => _HomeState();
@@ -30,11 +32,19 @@ class _HomeState extends State<Homepage> {
         _currentPage--;
         _pageController.animateToPage(
           _currentPage,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         );
       });
     }
+  }
+
+  void _navigateToCityPage(String cityName) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => CityPage(cityName: cityName),
+      ),
+    );
   }
 
   void _goToNextPage() {
@@ -43,7 +53,7 @@ class _HomeState extends State<Homepage> {
         _currentPage++;
         _pageController.animateToPage(
           _currentPage,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         );
       });
@@ -60,7 +70,7 @@ class _HomeState extends State<Homepage> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 150,
-              color: Color.fromRGBO(29, 35, 77, 1), // Background color
+              color: const Color.fromRGBO(29, 35, 77, 1), // Background color
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
                 child: Center(
@@ -88,11 +98,12 @@ class _HomeState extends State<Homepage> {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Container(
-                margin: EdgeInsets.all(15.0),
+                margin: const EdgeInsets.all(15.0),
                 width: MediaQuery.of(context).size.width,
                 height: 100,
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(29, 35, 77, 1), // Background color
+                  color:
+                      const Color.fromRGBO(29, 35, 77, 1), // Background color
                   borderRadius: BorderRadius.circular(20), // Rounded corners
                   border: Border.all(
                     color: Colors.white, // Border color
@@ -104,11 +115,11 @@ class _HomeState extends State<Homepage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Padding(
                               padding: EdgeInsets.only(top: 10),
                               child: Text(
@@ -150,12 +161,12 @@ class _HomeState extends State<Homepage> {
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 0, left: 20),
+                padding: EdgeInsets.only(top: 0, left: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      "Hi, User!",
+                      "Hi, ${widget.username}!",
                       style: TextStyle(
                           fontSize: 30,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -193,7 +204,8 @@ class _HomeState extends State<Homepage> {
                         return Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(12)),
                             image: DecorationImage(
                               image: AssetImage(_images[index]),
                               fit: BoxFit.cover,
@@ -207,16 +219,16 @@ class _HomeState extends State<Homepage> {
                     left: 0,
                     child: IconButton(
                       onPressed: _goToPreviousPage,
-                      icon: Icon(Icons.arrow_back_ios),
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      icon: const Icon(Icons.arrow_back_ios),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                   Positioned(
                     right: 0,
                     child: IconButton(
                       onPressed: _goToNextPage,
-                      icon: Icon(Icons.arrow_forward_ios),
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      icon: const Icon(Icons.arrow_forward_ios),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ],
@@ -261,28 +273,34 @@ class _HomeState extends State<Homepage> {
                   ])
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                        width: 90,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.black12,
-                            width: 2,
-                          ),
-                          image: DecorationImage(
-                            image: AssetImage("lib/images/$city"),
-                            fit: BoxFit.cover,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
-                              spreadRadius: 0.2,
-                              blurRadius: 2,
-                              offset: const Offset(0, 3),
+                      child: GestureDetector(
+                        onTap: () => _navigateToCityPage(city
+                            .split('.')
+                            .first
+                            .toUpperCase()), // Pass city name
+                        child: Container(
+                          width: 90,
+                          height: 90,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black12,
+                              width: 2,
                             ),
-                          ],
+                            image: DecorationImage(
+                              image: AssetImage("lib/images/$city"),
+                              fit: BoxFit.cover,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.3),
+                                spreadRadius: 0.2,
+                                blurRadius: 2,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

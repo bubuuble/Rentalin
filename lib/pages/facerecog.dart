@@ -214,8 +214,8 @@ class _FacerecogState extends State<Facerecog> {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Home()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
                 }, // Assign the method to the button press
                 icon: const Icon(Icons.abc_outlined),
                 label: Text(

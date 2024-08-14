@@ -4,16 +4,16 @@ import 'package:rentalin/moduls/bike.dart';
 class BikeTile extends StatelessWidget {
   final Bike bike;
 
-  BikeTile({super.key, required this.bike});
+  const BikeTile({super.key, required this.bike});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 15, right: 10),
+      margin: const EdgeInsets.only(left: 15, right: 10),
       width: 240, // Width of the tile
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
-        color: Color.fromRGBO(29, 35, 77, 1),
+        color: const Color.fromRGBO(29, 35, 77, 1),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -45,7 +45,7 @@ class BikeTile extends StatelessWidget {
                 horizontal: 8), // Reduce horizontal padding
             child: Text(
               bike.name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20, // Reduce font size if necessary
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class BikeTile extends StatelessWidget {
                 horizontal: 8), // Reduce horizontal padding
             child: Text(
               bike.description,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14, // Reduce font size if necessary
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
@@ -77,7 +77,7 @@ class BikeTile extends StatelessWidget {
               children: [
                 Text(
                   'Rp ${bike.price}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16, // Reduce font size if necessary
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -87,13 +87,13 @@ class BikeTile extends StatelessWidget {
                   onPressed: () {
                     // Define the button action here
                   },
-                  child: Text('Rent this Bike'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     foregroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 6), // Adjust button padding
                   ),
+                  child: const Text('Rent this Bike'),
                 ),
               ],
             ),

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:rentalin/components/navbar.dart';
 import 'package:rentalin/pages/Nearbypage.dart';
 import 'package:rentalin/pages/messagepage.dart';
-import 'package:rentalin/pages/profilepage.dart';
 import 'package:rentalin/pages/homepage.dart';
 
 class Home extends StatefulWidget {
@@ -16,22 +15,21 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  String _username =
+      'DefaultUsername'; // Set a default username or update dynamically
 
-  final List<Widget> _pages = [
-    //home
-    const Homepage(),
-    //nearby
-    const Nearbypage(),
-    //chat
-    const Messagepage(),
-  ];
+  List<Widget> get _pages {
+    return [
+      Homepage(username: _username), // Use the dynamic username
+      const Nearbypage(),
+      const Messagepage(),
+    ];
+  }
 
   void navigateBottomBar(int index) {
-    // Implement your navigation logic here
     setState(() {
       _selectedIndex = index;
     });
-    // For example, updating the state to navigate to different pages
   }
 
   @override

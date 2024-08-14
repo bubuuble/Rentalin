@@ -5,12 +5,12 @@ import 'package:rentalin/moduls/nearby_list.dart';
 class Nearbytile extends StatelessWidget {
   final Nearby nearby;
 
-  Nearbytile({super.key, required this.nearby});
+  const Nearbytile({super.key, required this.nearby});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 15, right: 10),
+      margin: const EdgeInsets.only(left: 15, right: 10),
       width: 400, // Adjust the width of the tile
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
@@ -41,7 +41,7 @@ class Nearbytile extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 15), // Space between image and text
+          const SizedBox(width: 15), // Space between image and text
           // Text and button
           Expanded(
             child: Column(
@@ -55,7 +55,7 @@ class Nearbytile extends StatelessWidget {
                     alignment: AlignmentDirectional.topStart,
                     child: Text(
                       nearby.rentName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 17,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -64,20 +64,20 @@ class Nearbytile extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on, // Replace with your desired icon
                       color: Colors.black54, // Adjust the color as needed
                       size: 20, // Adjust the size as needed
                     ),
-                    SizedBox(
+                    const SizedBox(
                         width:
                             4), // Add some space between the icon and the text
                     Text(
                       nearby.distance,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,
@@ -85,38 +85,45 @@ class Nearbytile extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   nearby.bikeName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   nearby.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   'Rp ${nearby.price}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5), // Space above the button
+                const SizedBox(height: 5), // Space above the button
                 ElevatedButton(
                   onPressed: () {
                     // Define the button action here
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        const Color.fromRGBO(29, 35, 77, 1), // Background color
+                    foregroundColor: Colors.white, // Text color
+                    minimumSize: const Size(150, 40), // Set button size
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  ),
                   child: Text(
                     'Rent this Bike',
                     style: GoogleFonts.poppins(
@@ -125,15 +132,8 @@ class Nearbytile extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        Color.fromRGBO(29, 35, 77, 1), // Background color
-                    foregroundColor: Colors.white, // Text color
-                    minimumSize: Size(150, 40), // Set button size
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 )
               ],
