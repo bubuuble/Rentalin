@@ -72,26 +72,52 @@ class _HomeState extends State<Homepage> {
               height: 150,
               color: const Color.fromRGBO(29, 35, 77, 1), // Background color
               child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search...',
-                      suffixIcon: const Icon(
-                        Icons.search,
-                        color: Colors.white,
+                padding: const EdgeInsets.only(left: 20, right: 10, top: 40),
+                child: Row(
+                  children: [
+                    // Expanded to use available space for TextField
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search...',
+                          suffixIcon: const SizedBox
+                              .shrink(), // Hide default suffix icon
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.1),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: const EdgeInsets.all(15),
+                        ),
+                        style: const TextStyle(color: Colors.white),
+                        cursorColor: Colors.white,
                       ),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.1),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
-                      ),
-                      contentPadding: const EdgeInsets.all(15),
                     ),
-                    style: const TextStyle(color: Colors.white),
-                    cursorColor: Colors.white,
-                  ),
+                    // Notification Icon
+                    Container(
+                      width: 40,
+                      height: 40,
+                      margin: const EdgeInsets.only(
+                          left: 10), // Margin to separate from TextField
+                      decoration: BoxDecoration(
+                        color: Colors.white, // Background color for the icon
+                        borderRadius:
+                            BorderRadius.circular(20), // Circular shape
+                        border: Border.all(
+                          color: Colors.black12, // Border color
+                          width: 2,
+                        ),
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.notifications,
+                          color: Colors.black,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

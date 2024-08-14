@@ -5,6 +5,7 @@ import 'package:rentalin/components/navbar.dart';
 import 'package:rentalin/pages/Nearbypage.dart';
 import 'package:rentalin/pages/messagepage.dart';
 import 'package:rentalin/pages/homepage.dart';
+import 'package:rentalin/pages/profilepage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,14 +16,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-  String _username =
-      'DefaultUsername'; // Set a default username or update dynamically
+  String _username = 'Rentalin'; // Set a default username or update dynamically
 
   List<Widget> get _pages {
     return [
       Homepage(username: _username), // Use the dynamic username
       const Nearbypage(),
       const Messagepage(),
+      const Settingpage(),
     ];
   }
 
