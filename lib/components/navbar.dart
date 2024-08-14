@@ -33,10 +33,6 @@ class MyBottomNavbar extends StatelessWidget {
             icon: Icons.message,
             text: "Chat",
           ),
-          GButton(
-            icon: Icons.person,
-            text: "Account",
-          )
         ],
       ),
     );

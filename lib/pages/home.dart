@@ -23,7 +23,6 @@ class _HomeState extends State<Home> {
       Homepage(username: _username), // Use the dynamic username
       const Nearbypage(),
       const Messagepage(),
-      const Settingpage(),
     ];
   }
 

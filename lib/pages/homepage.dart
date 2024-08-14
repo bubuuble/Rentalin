@@ -4,6 +4,7 @@ import 'package:rentalin/moduls/bike.dart';
 import 'package:rentalin/pages/bikelist.dart';
 import 'package:rentalin/pages/biketile.dart';
 import 'package:rentalin/pages/city_page.dart';
+import 'package:rentalin/pages/profilepage.dart';
 
 class Homepage extends StatefulWidget {
   final String username;
@@ -95,28 +96,38 @@ class _HomeState extends State<Homepage> {
                       ),
                     ),
                     // Notification Icon
-                    Container(
-                      width: 40,
-                      height: 40,
-                      margin: const EdgeInsets.only(
-                          left: 10), // Margin to separate from TextField
-                      decoration: BoxDecoration(
-                        color: Colors.white, // Background color for the icon
-                        borderRadius:
-                            BorderRadius.circular(20), // Circular shape
-                        border: Border.all(
-                          color: Colors.black12, // Border color
-                          width: 2,
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to the next page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Profilepage(), // Replace with your next page
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        margin: const EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: Colors.black12,
+                            width: 2,
+                          ),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                            size: 30,
+                          ),
                         ),
                       ),
-                      child: Center(
-                        child: Icon(
-                          Icons.notifications,
-                          color: Colors.black,
-                          size: 20,
-                        ),
-                      ),
-                    ),
+                    )
                   ],
                 ),
               ),
